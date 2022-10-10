@@ -1,28 +1,36 @@
 package ru.netology.service;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testng.Assert.*;
 
 public class CashbackHackServiceTest {
-
     CashbackHackService service = new CashbackHackService();
 
     @Test
-    public void shouldCorrectAmount() {
-        assertEquals(service.remain(2800), 200);
+    public void shouldReturn300IfAmount700() {
 
+        int actual = service.remain(700);
+        int expected = 300;
+
+        assertEquals(actual, expected);
     }
 
     @Test
-    public void shouldAmountZero() {
-        assertEquals(service.remain(0), 1000);
+    public void shouldReturn500IfAmount2500() {
+
+        int actual = service.remain(2500);
+        int expected = 500;
+
+        assertEquals(actual, expected);
     }
 
     @Test
-    public void shouldBuyExtraIfTheAmount1000() {
-        assertEquals(service.remain(1000), 0);
-    }
+    public void shouldReturnZeroIfAmount1000() {
 
+        int actual = service.remain(1000);
+        int expected = 0;
+
+        assertEquals(actual, expected);
+    }
 }
